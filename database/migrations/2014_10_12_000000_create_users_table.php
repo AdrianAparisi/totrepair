@@ -14,14 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->bigIncrements('id');//AutoIncremental
+            $table->string('nombre')->nullable();//Requerido
+            $table->string('apellidos')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->integer('cp')->nullable(true);//opcional
+            $table->date('f_nacimiento')->nullable(true);
+            $table->string('localidad')->nullable(true);
+            $table->integer('tlf')->nullable(true);
+            $table->string('provincia')->nullable(true);
+            $table->boolean('privilegios')->default(0);
+            $table->string('password')->nullable();
+
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
             $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }
