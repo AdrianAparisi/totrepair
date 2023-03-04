@@ -18,9 +18,9 @@ class CreateWritesTable extends Migration
 
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
-            $table->date('f_comentario')->nullable();
-            $table->string('titulo')->nullable();
-            $table->string('comentario')->nullable();
+            $table->date('d_comment')->nullable();
+            $table->string('title')->nullable();
+            $table->string('comment')->nullable();
 
             $table->foreign('product_id')->references('id')->on('products')->delete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->delete('cascade');

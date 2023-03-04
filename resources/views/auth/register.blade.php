@@ -13,9 +13,9 @@
                 <div class="mb-3">
                     <x-jet-label value="{{ __('Nombre') }}" />
 
-                    <x-jet-input class="{{ $errors->has('nombre') ? 'is-invalid' : '' }}" type="text" name="nombre"
-                                 :value="old('nombre')" required autofocus autocomplete="nombre" />
-                    <x-jet-input-error for="nombre"></x-jet-input-error>
+                    <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
+                                 :value="old('name')" required autofocus autocomplete="name" />
+                    <x-jet-input-error for="name"></x-jet-input-error>
                 </div>
 
                 <div class="mb-3">

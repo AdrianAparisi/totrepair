@@ -18,8 +18,8 @@ class CreateOrderLinesTable extends Migration
 
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('order_id');
-            $table->decimal('precio')->nullable();
-            $table->integer('cantidad')->nullable();
+            $table->decimal('price')->nullable();
+            $table->integer('quantity')->nullable();
 
             $table->foreign('product_id')->references('id')->on('products')->delete('cascade');
             $table->foreign('order_id')->references('id')->on('orders')->delete('cascade');

@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('principal')->nullable();
-            $table->string('ruta')->nullable();
+            $table->string('route')->nullable();
 
             $table->foreignId('product_id')->references('id')->on('products');
             $table->foreignId('brand_id')->references('id')->on('brands');

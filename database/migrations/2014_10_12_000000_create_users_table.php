@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');//AutoIncremental
-            $table->string('nombre')->nullable();//Requerido
-            $table->string('apellidos')->nullable();
+            $table->string('name')->nullable();//Requerido
+            $table->string('surname')->nullable();
             $table->string('email')->unique()->nullable();
             $table->integer('cp')->nullable(true);//opcional
-            $table->date('f_nacimiento')->nullable(true);
-            $table->string('localidad')->nullable(true);
+            $table->date('birthday')->nullable(true);
+            $table->string('locality')->nullable(true);
             $table->integer('tlf')->nullable(true);
-            $table->string('provincia')->nullable(true);
-            $table->boolean('privilegios')->default(0);
+            $table->string('province')->nullable(true);
+            $table->boolean('privileges')->default(0);
             $table->string('password')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();

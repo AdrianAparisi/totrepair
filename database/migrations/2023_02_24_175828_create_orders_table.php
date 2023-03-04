@@ -15,9 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('f_envio');
-            $table->date('f_pedido');
-            $table->string('estado');
+            $table->date('ship_date');
+            $table->date('order_date');
+            $table->string('status');
             $table->foreignId('user_id')->references('id')->on('users');
 
             $table->timestamps();
