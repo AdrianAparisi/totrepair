@@ -14,6 +14,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/errors', function () {
+    abort('401');
+});
+
 //Route::resource('/admin', AdminController::class)->middleware('admin');
 
 Route::resource('/products', ProductController::class)->middleware('admin');

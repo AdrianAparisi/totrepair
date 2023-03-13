@@ -19,6 +19,6 @@ class AdminMiddleware
         if (auth()->check() && auth()->user()->privileges)
             return $next($request);
 
-        return redirect('/');
+        return redirect('/errors');
     }
 }
