@@ -33,7 +33,7 @@ class Brands extends AbstractWidget
                 'text' => 'Marcas',
                 'link' => route('voyager.brands.index'),
             ],
-            'image' => '/brand_bg.jpg',
+            'image' => '/brand_bg.webp',
         ]));
     }
 

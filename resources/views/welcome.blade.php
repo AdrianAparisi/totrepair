@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>ToTRepair</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -35,10 +35,10 @@
                         @auth
                             <a href="{{ url('/dashboard') }}" class="text-muted">Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="text-muted">Log in</a>
+                            <a href="{{ route('login') }}" class="text-muted">Iniciar</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ms-4 text-muted">Register</a>
+                                <a href="{{ route('register') }}" class="ms-4 text-muted">Registrarse</a>
                             @endif
                         @endif
                     </div>

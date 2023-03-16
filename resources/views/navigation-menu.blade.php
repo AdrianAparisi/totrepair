@@ -1,9 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
     <div class="container">
         <!-- Logo -->
-        <a class="navbar-brand me-4" href="/">
-            <x-jet-application-mark width="36" />
-        </a>
+        <a href="{{ route('inicio') }}" class="logo"><img src="{{ asset('img/logo.png') }}" alt="Logo de ToTRepair" style=""></a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,9 +10,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
-                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
-                </x-jet-nav-link>
+                {{-- <x-jet-nav-link href="{{ route('inicio') }}" :active="request()->routeIs('inicio')">
+                    {{ __('Inicio') }}
+                </x-jet-nav-link> --}}
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -81,8 +80,8 @@
                                 {{ __('Manage Account') }}
                             </h6>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                            <x-jet-dropdown-link href="{{ route('inicio') }}">
+                                {{ __('Inicio') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -97,7 +96,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                  onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                {{ __('Log out') }}
+                                {{ __('Salir') }}
                             </x-jet-dropdown-link>
                             <form method="POST" id="logout-form" action="{{ route('logout') }}">
                                 @csrf

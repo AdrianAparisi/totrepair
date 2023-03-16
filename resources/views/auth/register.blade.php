@@ -1,71 +1,83 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
-        <x-jet-validation-errors class="mb-3" />
-
-        <div class="card-body">
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
-
-                <div class="mb-3">
-                    <x-jet-label value="{{ __('Nombre') }}" />
-
-                    <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
-                                 :value="old('name')" required autofocus autocomplete="name" />
-                    <x-jet-input-error for="name"></x-jet-input-error>
-                </div>
-
-                <div class="mb-3">
-                    <x-jet-label value="{{ __('Email') }}" />
-
-                    <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email"
-                                 :value="old('email')" required />
-                    <x-jet-input-error for="email"></x-jet-input-error>
-                </div>
-
-                <div class="mb-3">
-                    <x-jet-label value="{{ __('Contraseña') }}" />
-
-                    <x-jet-input class="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
-                                 name="password" required autocomplete="new-password" />
-                    <x-jet-input-error for="password"></x-jet-input-error>
-                </div>
-
-                <div class="mb-3">
-                    <x-jet-label value="{{ __('Confirmar Contraseña') }}" />
-
-                    <x-jet-input class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
-                </div>
-
-                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                    <div class="mb-3">
-                        <div class="custom-control custom-checkbox">
-                            <x-jet-checkbox id="terms" name="terms" />
-                            <label class="custom-control-label" for="terms">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'">'.__('Terms of Service').'</a>',
-                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'">'.__('Privacy Policy').'</a>',
-                                    ]) !!}
-                            </label>
-                        </div>
+    {{--  <x-jet-validation-errors class="mb-3" /> --}}
+    <div class="container-form sign-up">
+        <div class="welcome-back">
+            <div class="welcome-back">
+                <div class="message">
+                    <div>
+                        <a class="link-home" href="{{ route('inicio') }}"><span class="fas fa-home"></span></a>
                     </div>
-                @endif
-
-                <div class="mb-0">
-                    <div class="d-flex justify-content-end align-items-baseline">
-                        <a class="text-muted me-3 text-decoration-none" href="{{ route('login') }}">
-                            {{ __('¿Ya estás registrado?') }}
-                        </a>
-
-                        <x-jet-button>
-                            {{ __('Registrarse') }}
-                        </x-jet-button>
-                    </div>
+                    <h2>¿Aún no tienes una cuenta?</h2>
+                    <p>Si todavia no dispone de cuenta, por favor registrese aquí.</p>
+                    <a href="{{ route('login') }}" class="sign-in-btn">Iniciar Sesión</a>
                 </div>
-            </form>
+            </div>
         </div>
-    </x-jet-authentication-card>
+
+
+        <form method="POST" id="formulario" class="formulario" action="{{ route('register') }}">
+            @csrf
+            <h2 class="create-account">Crear una cuenta</h2>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-linkedin'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle'></i>
+                </div>
+            </div>
+
+
+            <label for="name">Nombre</label>
+
+            <input type="text" class=" formInput {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name"
+                id="name" placeholder="Introduzca su nombre" value="{{ old('name') }}" required autofocus
+                autocomplete="name" />
+            <x-jet-input-error for="name"></x-jet-input-error>
+
+
+            <label for="email">Email</label>
+
+            <input type="email" class=" formInput {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email"
+                id="email" placeholder="Introduzca el email" value="{{ old('email') }}" required />
+            <x-jet-input-error for="email"></x-jet-input-error>
+
+
+            <label for="password">Contraseña</label>
+
+            <input type="password" class=" formInput {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password"
+                id="password" placeholder="Introduzca la contraseña" required autocomplete="new-password" />
+            <x-jet-input-error for="password"></x-jet-input-error>
+
+
+            <label for="password_confirmation">Confirmar la Contraseña</label>
+            <input type="password" required class="formInput" name="password_confirmation" id="password_confirmation"
+                placeholder="Repita la contraseña"
+                value="{{ old('password_confirmation') ? old('password_confirmation') : '' }}">
+            <p id="password_confirmation_p">
+                @error('password_confirmation')
+                    {{ $message }}
+                @enderror
+            </p>
+
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                <div>
+                    <div class="miCheck">
+                        <x-jet-checkbox id="terms" name="terms" required />
+                        <label class="custom-control-label" for="terms">
+                            {!! __('He leído los :terms_of_service y :privacy_policy', [
+                                'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '">' . __('Terminos') . '</a>',
+                                'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '">' . __('Condiciones') . '</a>',
+                            ]) !!}
+                        </label>
+                    </div>
+                </div>
+            @endif
+
+            <input type="submit" name="register" id="submit" value="{{ __('Registrarse') }}" />
+        </form>
+    </div>
 </x-guest-layout>

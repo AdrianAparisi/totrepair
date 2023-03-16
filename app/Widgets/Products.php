@@ -33,7 +33,7 @@ class Products extends AbstractWidget
                 'text' => 'Productos',
                 'link' => route('voyager.products.index'),
             ],
-            'image' => '/product_bg.jpg',
+            'image' => '/product_bg.webp',
         ]));
     }
 
