@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Accessory;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class AccessoryController extends Controller
 {
@@ -14,7 +15,8 @@ class AccessoryController extends Controller
      */
     public function index()
     {
-        //
+        $accesorios = Accessory::with('product', 'image')->get();
+        return view('accesorios.index', compact('accesorios'));
     }
 
     /**

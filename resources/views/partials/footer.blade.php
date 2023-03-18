@@ -16,9 +16,9 @@
             <div class="footer-content">
                 <span class="menu-title">ayuda</span>
                 <a href="{{ route('contacto') }}" class="menu-item-footer">Contacto</a>
-                <a href="#" class="menu-item-footer">Politica de privacidad</a>
+                <a href="{{ route('policy.show') }}" class="menu-item-footer">Politica de privacidad</a>
                 <a href="#" class="menu-item-footer">Cookies</a>
-                <a href="#" class="menu-item-footer">FAQ</a>
+                <a href="{{ route('faq') }}" class="menu-item-footer">FAQ</a>
             </div>
         </div>
 

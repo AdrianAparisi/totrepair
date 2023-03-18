@@ -28,12 +28,6 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
-    {{-- Script para Slider --}}
-    <script>
-        $('.carousel').carousel({
-            interval: 3000 //Milisegundos de transición entre slides
-        });
-    </script>
 
     <title>ToTRepair: @yield('titulo')</title>
 </head>
@@ -41,7 +35,6 @@
 <body>
     @include('partials.header')
     @yield('contenido')
-    @include('partials.footer')
 </body>
 
 </html>

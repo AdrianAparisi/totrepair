@@ -26,7 +26,7 @@
                     <span class="secondTextSlide">En ToTRepair podrá encontrar gran variedad de accesorios para complementar
                         nuestros smartphones, como fundas, cargadores, auriculares, e incluso herramientas de reparación
                         entre otros...</span>
-                    <a href="#" class="linkSlide">Ver más</a>
+                    <a href="{{ route('accesorios') }}" class="linkSlide">Ver más</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -46,7 +46,7 @@
                     <span class="secondTextSlide">Desde ToTRepair ofrecemos una amplía variedad de dispositivos de
                         diferentes marcas y modelos, el que mejor se adapte a las necesidades y presupuesto del
                         cliente.</span>
-                    <a href="#" class="linkSlide">Ver más</a>
+                    <a href="{{ route('productos') }}" class="linkSlide">Ver más</a>
                 </div>
             </div>
         </div>

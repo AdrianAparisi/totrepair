@@ -12,11 +12,25 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $offset = $request->input('offset', 0);
+        $products = Product::with('images')->skip($offset)->take(12)->get();
+        $totalProducts = Product::count();
+        return view('productos.index', compact('products', 'totalProducts', 'offset'));
     }
 
+    public function getProducts(Request $request)
+    {
+        $offset = $request->input('offset', 0);
+        $products = Product::with('images')->skip($offset)->take(12)->get();
+        $totalProducts = Product::count();
+        return response()->json([
+            'products' => $products,
+            'totalProducts' => $totalProducts,
+            'offset' => $offset
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +58,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
     }
