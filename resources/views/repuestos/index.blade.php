@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('titulo', 'Accesorios')
+@section('titulo', 'Repuestos')
 
 @section('head')
 
@@ -23,15 +23,15 @@
     <div class="main-products">
         <div class="container">
             <div id="product-list" class="row">
-                @foreach ($accesorios as $accesorio)
+                @foreach ($repuestos as $repuesto)
                     <div class="productDiv">
                         <div class="single-product">
                             <div class="img-content">
-                                <img src="{{ $accesorio->product->images->first()->route }}" alt="imagen">
+                                <img src="{{ $repuesto->product->images->first()->route }}" alt="imagen">
                             </div>
                             <div class="text-content">
-                                <h3 class="product-title">{{ $accesorio->product->name }}</h3>
-                                <h4 class="product-price">{{ $accesorio->product->price }} €</h4>
+                                <h3 class="product-title">{{ $repuesto->product->name }}</h3>
+                                <h4 class="product-price">{{ $repuesto->product->price }} €</h4>
                             </div>
                         </div>
                     </div>

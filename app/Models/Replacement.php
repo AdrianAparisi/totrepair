@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Replacement extends Model
 {
-    use HasFactory;
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function image()
+    {
+        return $this->hasOne(Image::class, 'product_id', 'product_id');
+    }
 }

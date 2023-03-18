@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let offset = $('#product-list > div').length;
     let totalProducts = $('#total-products').data('total-products');
-    $('#load-more').click(function(e) {
+    $('#load-more').click(function (e) {
         e.preventDefault();
         $.ajax({
             url: '/productos/data',
@@ -10,14 +10,13 @@ $(document).ready(function() {
                 totalProducts: totalProducts,
                 offset: offset
             },
-            success: function(data) {
+            success: function (data) {
                 let products = data.products;
                 let baseUrl = window.location.origin;
-                products.forEach(function(product) {
+                products.forEach(function (product) {
                     console.log(product.images[0].route)
-                    // Se crea el div con la clase "col-md-6 col-lg-3 col-xl-3"
+                    // Se crea el div principal"
                     let productDiv = document.createElement('div');
-                    productDiv.classList.add('col-md-6', 'col-lg-3', 'col-xl-3');
 
                     // Se crea el div con la clase "single-product"
                     let singleProductDiv = document.createElement('div');
@@ -54,7 +53,7 @@ $(document).ready(function() {
                     // Se crea el elemento de precio con el precio del producto
                     let price = document.createElement('h4');
                     price.classList.add('product-price');
-                    price.textContent = product.price+' €';
+                    price.textContent = product.price + ' €';
                     textContent.appendChild(price);
 
                     // Se agrega los elementos creados a "singleProductDiv"
@@ -72,7 +71,7 @@ $(document).ready(function() {
                     $('#load-more').hide();
                 }
             },
-            error: function(xhr) {
+            error: function (xhr) {
                 console.log(xhr.responseText);
             }
         });

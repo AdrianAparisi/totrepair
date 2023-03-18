@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.products')
 
 @section('titulo', 'Productos')
 
@@ -19,12 +19,11 @@
 @endsection
 
 @section('contenido')
-
     <div class="main-products">
         <div class="container">
             <div id="product-list" class="row">
                 @foreach ($products as $product)
-                    <div class="col-md-6 col-lg-3 col-xl-3">
+                    <div class="productDiv">
                         <div class="single-product">
                             <div class="img-content">
                                 <a href="{{ route('productos', ['id' => $product->id]) }}"><img

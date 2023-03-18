@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReplacementController;
 use App\Models\Accessory;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -31,6 +32,7 @@ Route::get('/producto/{id}', [ProductController::class, 'show'])->name('producto
 
 
 Route::get('/accesorios', [AccessoryController::class, 'index'])->name('accesorios');
+Route::get('/repuestos', [ReplacementController::class, 'index'])->name('repuestos');
 
 Route::get('/errors', function () {
     abort('401');

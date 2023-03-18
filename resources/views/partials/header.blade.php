@@ -3,7 +3,7 @@
 
     <ul class="navbar">
         <li><a href="{{ route('inicio') }}" class="active">Inicio</a></li>
-        <li><a href="#">Repuestos</a></li>
+        <li><a href="{{ route('repuestos') }}">Repuestos</a></li>
         <li><a href="{{ route('accesorios') }}">Accesorios</a></li>
         <li><a href="{{ route('productos') }}">Móviles</a></li>
     </ul>

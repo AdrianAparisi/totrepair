@@ -72,7 +72,7 @@ header {
 }
 
 .navbar a.active {
-    color: var(--text-color-bg);
+    color: var(--main-color);
 }
 
 .main {

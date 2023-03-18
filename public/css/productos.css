@@ -1,1 +1,118 @@
+* {
+    transition: 0.5s;
+}
 
+/*PRODUCTOS*/
+.main-products {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.single-product {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 20rem;
+}
+
+.img-content img {
+    width: 85%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.img-content img:hover {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    overflow: hidden;
+}
+
+.text-content {
+    font-family: "Josefin Sans", sans-serif;
+    text-align: center;
+    height: 6.5rem;
+}
+
+/* Botón de cargar más productos */
+#load-more {
+    color: #000;
+    margin-top: 2rem;
+    border: none;
+}
+
+#load-more:hover {
+    background: transparent;
+    color: #000;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+}
+
+#load-more:before,
+#load-more:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #000;
+    transition: 300ms ease all;
+}
+
+#load-more:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+#load-more:hover:before,
+#load-more:hover:after {
+    width: 100%;
+    transition: 300ms ease all;
+}
+
+#load-more {
+    width: auto;
+    height: 3rem;
+    padding: 10px 25px;
+    border: 2px solid #000;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+
+@media only screen and (max-width: 1280px) {
+    #product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    #product-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

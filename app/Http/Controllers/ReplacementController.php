@@ -14,7 +14,8 @@ class ReplacementController extends Controller
      */
     public function index()
     {
-        //
+        $repuestos = Replacement::with('product', 'image')->get();
+        return view('repuestos.index', compact('repuestos'));
     }
 
     /**
