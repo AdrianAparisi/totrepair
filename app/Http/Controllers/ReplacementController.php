@@ -12,10 +12,24 @@ class ReplacementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $repuestos = Replacement::with('product', 'image')->get();
-        return view('repuestos.index', compact('repuestos'));
+        $offset = $request->input('offset', 0);
+        $repuestos = Replacement::with('images')->skip($offset)->take(12)->get();
+        $totalRepuestos = Replacement::count();
+        return view('repuestos.index', compact('repuestos', 'totalRepuestos', 'offset'));
+    }
+
+    public function getRepuestos(Request $request)
+    {
+        $offset = $request->input('offset', 0);
+        $repuestos = Replacement::with('images')->skip($offset)->take(12)->get();
+        $totalRepuestos = Replacement::count();
+        return response()->json([
+            'repuestos' => $repuestos,
+            'totalRepuestos' => $totalRepuestos,
+            'offset' => $offset
+        ]);
     }
 
     /**

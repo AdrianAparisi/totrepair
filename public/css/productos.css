@@ -105,14 +105,37 @@
     display: inline-block;
   }
 
+  /* buscar productos */
+
+  .form-inline{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  #product-list .row .errorBusqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10rem;
+    padding: 3rem;
+}
+
 @media only screen and (max-width: 1280px) {
     #product-list {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 @media only screen and (max-width: 980px) {
     #product-list {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .form-inline{
+        display: flex;
+        justify-content: center;
     }
 }

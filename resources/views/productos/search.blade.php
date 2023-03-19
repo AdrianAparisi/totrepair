@@ -1,6 +1,6 @@
-@extends('layouts.products')
+@extends('layouts.faq')
 
-@section('titulo', 'Productos')
+@section('titulo', 'Buscar')
 
 @section('head')
 
@@ -29,30 +29,26 @@
 
         <div class="container">
             <div id="product-list" class="row">
-                @foreach ($products as $product)
-                    <div class="productDiv">
-                        <div class="single-product">
-                            <div class="img-content">
-                                <a href="{{ route('productos', ['id' => $product->id]) }}"><img
-                                        src="{{ $product->images->first()->route }}" alt="imagen"></a>
-                            </div>
-                            <div class="text-content">
-                                <h3 class="product-title">{{ $product->name }}</h3>
-                                <h4 class="product-price">{{ $product->price }} €</h4>
+                @if (count($products) > 0)
+                    @foreach ($products as $product)
+                        <div class="productDiv">
+                            <div class="single-product">
+                                <div class="img-content">
+                                    <a href="{{ route('productos', ['id' => $product->id]) }}"><img
+                                            src="{{ $product->images->first()->route }}" alt="imagen"></a>
+                                </div>
+                                <div class="text-content">
+                                    <h3 class="product-title">{{ $product->name }}</h3>
+                                    <h4 class="product-price">{{ $product->price }} €</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
             </div>
         </div>
-        <!-- Botón "Ver más" -->
-        @if (count($products) < $totalProducts)
-            <button id="load-more" data-offset="{{ $offset }}"><span>Ver más</span></button>
-            <input type="hidden" id="total-products" data-total-products="{{ $totalProducts }}">
-        @else
-            <button disabled>No hay más productos</button>
+    @else
+        <div class="alert alert-danger errorBusqueda">No se encontraron resultados para la búsqueda.</div>
         @endif
-    </div>
-@endsection
 
-</section>
+    @endsection
+    </section>

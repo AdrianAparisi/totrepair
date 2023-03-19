@@ -19,8 +19,13 @@
 @endsection
 
 @section('contenido')
-
     <div class="main-products">
+        {{-- Buscador --}}
+        <form action="{{ route('search') }}" method="GET" class="form-inline">
+            @csrf
+            <input class="form-control" id="search" type="search" name="search" placeholder="Introducir producto...">
+            <input type="submit" value="Buscar" class="btn btn-success">
+        </form>
         <div class="container">
             <div id="product-list" class="row">
                 @foreach ($accesorios as $accesorio)

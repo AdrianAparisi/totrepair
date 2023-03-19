@@ -31,6 +31,14 @@ class ProductController extends Controller
             'offset' => $offset
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $products = Product::where('name', 'like', '%' . $search . '%')->get();
+        return view('productos.search', ['products' => $products]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

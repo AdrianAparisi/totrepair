@@ -36,7 +36,7 @@
                     <span class="secondTextSlide">En nuestra tienda de repuestos, se pueden encontrar una amplia
                         variedad de repuestos para diferentes modelos y marcas de teléfonos móviles, lo que permite a los
                         clientes encontrar la pieza exacta que necesitan para reparar su dispositivo.</span>
-                    <a href="#" class="linkSlide">Ver más</a>
+                    <a href="{{ route('repuestos') }}" class="linkSlide">Ver más</a>
                 </div>
             </div>
             <div class="carousel-item">

@@ -32,7 +32,12 @@ Route::get('/producto/{id}', [ProductController::class, 'show'])->name('producto
 
 
 Route::get('/accesorios', [AccessoryController::class, 'index'])->name('accesorios');
+
 Route::get('/repuestos', [ReplacementController::class, 'index'])->name('repuestos');
+Route::get('/repuestos/data', 'App\Http\Controllers\ReplacementController@getRepuestos');
+
+Route::get('/search', [ProductController::class, 'search'])->name('search');
+
 
 Route::get('/errors', function () {
     abort('401');

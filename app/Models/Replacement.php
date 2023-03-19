@@ -12,7 +12,7 @@ class Replacement extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function image()
+    public function images()
     {
         return $this->hasOne(Image::class, 'product_id', 'product_id');
     }
