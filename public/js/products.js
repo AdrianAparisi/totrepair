@@ -56,6 +56,38 @@ $(document).ready(function () {
                     price.textContent = product.price + ' €';
                     textContent.appendChild(price);
 
+
+                    //Form del boton carrito
+                    // Crear el elemento form
+                    let form = document.createElement("form");
+                    form.action = `/addCart/${product.id}`;
+                    form.method = "POST";
+                    textContent.appendChild(form);
+
+
+                    // Crear el campo csrf
+                    let csrf = document.createElement("input");
+                    csrf.type = "hidden";
+                    csrf.name = "_token";
+                    csrf.value = csrfToken; // donde csrfToken es la variable JavaScript que contiene el token CSRF de Laravel
+                    form.appendChild(csrf);
+
+                    // Agregar el campo de cantidad al formulario
+                    let quantity = document.createElement('input');
+                    quantity.setAttribute('type', 'number');
+                    quantity.setAttribute('value', '1');
+                    quantity.setAttribute('min', '1');
+                    quantity.setAttribute('class', 'form-control cantidad');
+                    quantity.setAttribute('name', 'quantity');
+                    form.appendChild(quantity);
+
+                    let submitButton = document.createElement("input");
+                    submitButton.type = "submit";
+                    submitButton.classList.add("btn", "btn-primary"); // Agregar clases CSS al botón
+                    submitButton.value = "Añadir al carrito";
+                    // Agregar el producto completo al contenedor de productos
+                    form.appendChild(submitButton);
+
                     // Se agrega los elementos creados a "singleProductDiv"
                     singleProductDiv.appendChild(imgContent);
                     singleProductDiv.appendChild(textContent);

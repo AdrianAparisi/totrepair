@@ -10,6 +10,14 @@
     text-align: center;
 }
 
+.product-title {
+    font-size: 1.3rem;
+}
+
+.product-price {
+    font-size: 1.3rem;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -28,10 +36,14 @@
     background-color: #fff;
     border: 2px solid #ddd;
     border-radius: 5px;
-    padding: 2rem;
+    padding: 2rem 1rem 5rem 1rem;
     text-align: center;
     width: 100%;
     max-width: 20rem;
+}
+
+.cantidad{
+    margin-bottom: 0.9rem;
 }
 
 .img-content img {

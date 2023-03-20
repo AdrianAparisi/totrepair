@@ -2,8 +2,8 @@
     text-transform: uppercase;
     margin: 0.5rem;
     font-size: 1rem;
-    text-decoration: underline;
-    font-style: italic;
+    text-decoration: none;
+    font-style: 'Josefin Sans';
     color: var(--main-color);
 }
 

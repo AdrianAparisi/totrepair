@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
+use App\Http\Controllers\Session;
+use App\Http\Middleware\CartCounterMiddleware;
 
 class ProductController extends Controller
 {
@@ -37,6 +41,56 @@ class ProductController extends Controller
         $search = $request->input('search');
         $products = Product::where('name', 'like', '%' . $search . '%')->get();
         return view('productos.search', ['products' => $products]);
+    }
+
+    public function addCart(Request $request, $id)
+    {
+        if (Auth::id()) {
+            $user = auth()->user();
+            $product = product::find($id);
+            $cart = new cart;
+
+            $cart->name = $user->name;
+            $cart->email = $user->email;
+            $cart->product_name = $product->name;
+            $cart->price = $product->price;
+            $cart->quantity = $request->quantity;
+
+
+            $cart->save();
+            $count = Cart::where('email', $user->email)->sum('quantity');
+            $request->session()->put('cart_count', $count);
+            $count = session('cart_count', 0);
+
+            return redirect()->back()->with(['message' => 'Producto añadido correctamente', 'count' => $count]);
+        } else {
+            return redirect('login');
+        }
+    }
+
+    public function showCart()
+    {
+        $user = auth()->user();
+        $cart = Cart::where('email', $user->email)->get();
+
+        $count = Cart::where('email', $user->email)->sum('quantity');
+
+
+        return view('cart.showCart', compact('count', 'cart'));
+    }
+
+    public function deleteCart($id)
+    {
+        $user = auth()->user();
+        $data = Cart::find($id);
+
+        $data->delete();
+        // Actualiza el contador del carrito después de eliminar el producto del carrito
+        $user = Auth::user();
+        $count = Cart::where('email', $user->email)->sum('quantity');
+        session()->put('cart_count', $count);
+
+        return redirect()->back()->with(['message' => 'Producto eliminado correctamente', 'count' => $count]);
     }
 
     /**

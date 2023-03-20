@@ -38,6 +38,13 @@ Route::get('/repuestos/data', 'App\Http\Controllers\ReplacementController@getRep
 
 Route::get('/search', [ProductController::class, 'search'])->name('search');
 
+Route::post('/addCart/{id}', [ProductController::class, 'addCart'])->name('addCart');
+
+Route::get('/cart/showCart', [ProductController::class, 'showCart'])->name('showCart');
+Route::get('/cart/deleteCart/{id}', [ProductController::class, 'deleteCart'])->name('deleteCart');
+Route::post('/cart/deleteCart/{id}', 'CartCounter@deleteCart')->middleware('cart')->name('deleteCart');
+
+
 
 Route::get('/errors', function () {
     abort('401');

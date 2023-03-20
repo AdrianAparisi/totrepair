@@ -16,7 +16,12 @@
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span
                         class="fas fa-sign-out-alt fa-lg" aria-label="icono de salir"></span></a>
 
-                <a href="{{ route('inicio') }}" class="fas fa-shopping-cart fa-lg" aria-label="icono de carrito"></a>
+                {{-- <a href="{{ route('inicio') }}" class="fas fa-shopping-cart fa-lg" aria-label="icono de carrito"> Carrito [{{$count}}]</a> --}}
+                <a href="{{ route('showCart') }}" class="fa-layers fa-fw">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="fa-layers-counter">{{ session('cart_count', 0) }}</span>
+                </a>
+
                 <form method="POST" id="logout-form" action="{{ route('logout') }}">
                     @csrf
                 </form>

@@ -58,14 +58,12 @@ header {
     justify-content: space-between;
 }
 
-.EnlaceR a {
+/* .EnlaceR a {
     text-transform: uppercase;
     margin: 0.5rem;
     font-size: 1rem;
-    text-decoration: underline;
-    font-style: italic;
     color: var(--main-color);
-}
+} */
 
 .navbar a:hover {
     color: var(--main-color);
