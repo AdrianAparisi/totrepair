@@ -1,4 +1,4 @@
-<x-jet-form-section submit="updateProfileInformation">
+<x-jet-form-section submit="updateProfileInformation" >
     <x-slot name="title">
         {{ __('Profile Information') }}
     </x-slot>
@@ -61,14 +61,14 @@
 
         <div class="w-md-75">
             <!-- Name -->
-            <div class="mb-3">
+            <div class="mb-3" style="color: #0052bd;">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model.defer="state.name" autocomplete="name" />
                 <x-jet-input-error for="name" />
             </div>
 
             <!-- Email -->
-            <div class="mb-3">
+            <div class="mb-3" style="color: #0052bd;">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" type="email" class="{{ $errors->has('email') ? 'is-invalid' : '' }}" wire:model.defer="state.email" />
                 <x-jet-input-error for="email" />

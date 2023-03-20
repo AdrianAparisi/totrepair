@@ -40,6 +40,13 @@
                                 <div class="text-content">
                                     <h3 class="product-title">{{ $product->name }}</h3>
                                     <h4 class="product-price">{{ $product->price }} €</h4>
+
+                                    <form action="{{ route('addCart', $product->id) }}" method="POST">
+                                        @csrf
+                                        <input type="number" value="1" min="1" class="form-control cantidad"
+                                            name="quantity">
+                                        <input type="submit" class="btn btn-primay" value="Añadir al carrito">
+                                    </form>
                                 </div>
                             </div>
                         </div>

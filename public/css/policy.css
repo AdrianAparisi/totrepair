@@ -1,0 +1,42 @@
+section{
+    margin-top: 8rem;
+}
+
+section>h1 {
+    text-align: center;
+    font-family: 'Cabin''Josefin Sans';
+    margin: 50px;
+    font-size: 40px;
+    color: var(--main-color);
+}
+
+section>article>h2 {
+    font-family: 'Cabin''Josefin Sans';
+    margin: 75px 50px 25px 50px;
+    font-size: 24px;
+    color: var(--main-color);
+}
+
+section>article>h3 {
+    font-family: 'Cabin''Josefin Sans';
+    margin: 25px 50px;
+    font-size: 20px;
+}
+
+section>article>p {
+    font-family: 'Cabin''Josefin Sans';
+    font-size: 18px;
+    margin: 25px 50px;
+}
+
+section>p {
+    font-family: 'Cabin''Josefin Sans';
+    font-size: 18px;
+    margin: 25px 50px;
+}
+
+section>article>ul>li {
+    font-family: 'Cabin''Josefin Sans';
+    font-size: 18px;
+    margin: 25px 50px;
+}

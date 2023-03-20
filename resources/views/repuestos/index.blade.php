@@ -38,6 +38,13 @@
                             <div class="text-content">
                                 <h3 class="product-title">{{ $repuesto->product->name }}</h3>
                                 <h4 class="product-price">{{ $repuesto->product->price }} €</h4>
+
+                                <form action="" method="POST">
+                                    @csrf
+                                    <input type="number" value="1" min="1" class="form-control cantidad"
+                                        name="quantity">
+                                    <input type="submit" class="btn btn-primary" value="Añadir al carrito">
+                                </form>
                             </div>
                         </div>
                     </div>

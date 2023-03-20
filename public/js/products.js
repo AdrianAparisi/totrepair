@@ -64,7 +64,6 @@ $(document).ready(function () {
                     form.method = "POST";
                     textContent.appendChild(form);
 
-
                     // Crear el campo csrf
                     let csrf = document.createElement("input");
                     csrf.type = "hidden";

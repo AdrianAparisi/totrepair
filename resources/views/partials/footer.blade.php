@@ -8,15 +8,16 @@
         <div class="footer-menu">
             <div class="footer-content">
                 <span class="menu-title">menu</span>
-                <a href="#" class="menu-item-footer">Repuestos</a>
-                <a href="#" class="menu-item-footer">Accesorios</a>
-                <a href="#" class="menu-item-footer">Móviles</a>
+                <a href="{{ route('repuestos') }}" class="menu-item-footer">Repuestos</a>
+                <a href="{{ route('accesorios') }}" class="menu-item-footer">Accesorios</a>
+                <a href="{{ route('productos') }}" class="menu-item-footer">Móviles</a>
                 <a href="#" class="menu-item-footer">Ayuda</a>
             </div>
             <div class="footer-content">
                 <span class="menu-title">ayuda</span>
                 <a href="{{ route('contacto') }}" class="menu-item-footer">Contacto</a>
                 <a href="{{ route('policy.show') }}" class="menu-item-footer">Politica de privacidad</a>
+                <a href="{{ route('terms.show') }}" class="menu-item-footer">Términos y condiciones</a>
                 <a href="#" class="menu-item-footer">Cookies</a>
                 <a href="{{ route('faq') }}" class="menu-item-footer">FAQ</a>
             </div>
