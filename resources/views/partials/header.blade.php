@@ -19,7 +19,7 @@
                 {{-- <a href="{{ route('inicio') }}" class="fas fa-shopping-cart fa-lg" aria-label="icono de carrito"> Carrito [{{$count}}]</a> --}}
                 <a href="{{ route('showCart') }}" class="fa-layers fa-fw">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="fa-layers-counter">{{ session('cart_count', 0) }}</span>
+                    <span class="fa-layers-counter">{{ session('cart_count') }}</span>
                 </a>
 
                 <form method="POST" id="logout-form" action="{{ route('logout') }}">

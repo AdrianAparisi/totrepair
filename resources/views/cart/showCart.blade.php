@@ -24,7 +24,7 @@
             {{ session()->get('message') }}
         </div>
     @endif
-    <table class="table table-responsive table-striped" style="padding:7rem 10rem 10rem 2rem; text-align:center;">
+    <table class="table table-responsive table-striped" style="padding:7rem 10rem 1rem 2rem; text-align:center;">
         <thead>
             <tr>
                 <th>Nombre del producto</th>
@@ -34,18 +34,37 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($cart as $carts)
-                <tr>
-                    <td>{{ $carts->product_name }}</td>
-                    <td>{{ $carts->quantity }}</td>
-                    <td>{{ $carts->price }}</td>
-                    <td>
-                        <a class="btn btn-danger" href="{{ route('deleteCart', $carts->id) }}">Borrar</a>
-                    </td>
-                </tr>
-            @endforeach
+
+            <form action="{{ route('showCart') }}" method="post">
+                @csrf
+
+                @foreach ($cart as $carts)
+                    <tr>
+                        <td>
+                            <input type="text" name="productname[]" value="{{ $carts->product_name }}" hidden>
+                            {{ $carts->product_name }}
+                        </td>
+
+                        <td>
+                            <input type="text" name="quantity[]" value="{{ $carts->quantity }}" hidden>
+                            {{ $carts->quantity }}
+                        </td>
+
+                        <td>
+                            <input type="text" name="price[]" value="{{ $carts->price }}" hidden>
+                            {{ $carts->price }}
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" href="{{ route('deleteCart', $carts->id) }}">Borrar</a>
+                        </td>
+                    </tr>
+                @endforeach
         </tbody>
     </table>
+
+    <button class="btn btn-success confirmOrder">Confirmar pedido</button>
+
+    </form>
 @endsection
 
 </section>

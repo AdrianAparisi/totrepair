@@ -15,9 +15,14 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('ship_date');
-            $table->date('order_date');
-            $table->string('status');
+            $table->string('name')->nullable;
+            $table->string('email')->nullable;
+            $table->string('product_name')->nullable;
+            $table->string('quantity')->nullable;
+            $table->string('price')->nullable;
+            $table->string('status')->nullable;
+            $table->date('ship_date')->nullable;
+            $table->date('order_date')->nullable;
             $table->foreignId('user_id')->references('id')->on('users');
 
             $table->timestamps();

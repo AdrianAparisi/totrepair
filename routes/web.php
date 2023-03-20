@@ -44,7 +44,7 @@ Route::get('/cart/showCart', [ProductController::class, 'showCart'])->name('show
 Route::get('/cart/deleteCart/{id}', [ProductController::class, 'deleteCart'])->name('deleteCart');
 Route::post('/cart/deleteCart/{id}', 'CartCounter@deleteCart')->middleware('cart')->name('deleteCart');
 
-
+Route::post('/cart/showCart/{id}', [ProductController::class, 'showCart'])->name('confirmOrder');
 
 Route::get('/errors', function () {
     abort('401');

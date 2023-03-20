@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Http\Controllers\Session;
 use App\Http\Middleware\CartCounterMiddleware;
 
@@ -91,6 +93,27 @@ class ProductController extends Controller
         session()->put('cart_count', $count);
 
         return redirect()->back()->with(['message' => 'Producto eliminado correctamente', 'count' => $count]);
+    }
+
+    public function confirmOrder(Request $request)
+    {
+        $user = auth()->user();
+        $name = $user->name;
+        $email = $user->email;
+
+        foreach ($request->productname as $key => $productname) {
+            $order = new order;
+
+            $order->product_name = $request->productname[$key];
+            $order->price = $request->price[$key];
+            $order->quantity = $request->quantity[$key];
+            $order->name = $name;
+            $order->email = $email;
+            $order->save();
+        }
+        DB::table('carts')->where('email', $email)->delete();
+
+        return redirect()->back();
     }
 
     /**
